@@ -38,48 +38,37 @@ Lugia Weather/
 
 ---
 
-## Instruções de Configuração, Execução e Testes
+## Dependências do Projeto
+
+As dependências são gerenciadas automaticamente pelo PlatformIO através do arquivo `platformio.ini`:
+
+- **Plataforma:** espressif32
+- **Placa:** esp32dev
+- **Framework:** arduino
+- **Bibliotecas:**
+  - knolleary/PubSubClient@^2.8
+
+---
+
+## Instruções para Simulação (Importação do Projeto)
 
 ### 1. Pré-requisitos
 
-- [PlatformIO](https://platformio.org/) instalado (VSCode recomendado)
-- Placa ESP32 DevKit C V4
-- Sensor ultrassônico HC-SR04
-- LEDs (vermelho, amarelo, verde, ciano) e resistores
-- Acesso à internet para envio MQTT
+- [VS Code](https://code.visualstudio.com/) instalado
+- [PlatformIO IDE](https://platformio.org/install/ide?install=vscode) instalado no VS Code
+- [Wokwi Simulator Extension](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode) instalada no VS Code
 
-### 2. Clonando o Repositório
+### 2. Como Simular
 
-```sh
-git clone https://github.com/seu-usuario/lugia-weather.git
-cd lugia-weather
-```
-
-### 3. Configuração do Ambiente
-
-- Abra o projeto no VSCode com PlatformIO.
-- Confira as configurações em [`platformio.ini`](platformio.ini).
-- Ajuste o SSID e senha do Wi-Fi em [`q1/src/main.cpp`](q1/src/main.cpp) se necessário.
-
-### 4. Montagem do Hardware
-
-- Siga o diagrama em [`q1/diagram.json`](q1/diagram.json) ou a imagem ilustrativa.
-- Conecte o HC-SR04 aos pinos 21 (TRIG) e 22 (ECHO) do ESP32.
-- Conecte os LEDs aos pinos 25 (vermelho), 26 (amarelo), 27 (verde) e 14 (ciano).
-
-### 5. Compilação e Upload
-
-- Conecte o ESP32 ao computador.
-- No PlatformIO, clique em **Upload** ou use:
-  ```sh
-  pio run --target upload
-  ```
-
-### 6. Execução e Testes
-
-- Abra o monitor serial (baud 115200) para acompanhar logs.
-- O dispositivo irá conectar ao Wi-Fi, enviar dados MQTT e indicar status com LEDs.
-- Os dados podem ser visualizados no [ThingSpeak - Canal 2976892](https://thingspeak.mathworks.com/channels/2976892).
+1. Baixe ou clone este repositório em seu computador:
+   ```sh
+   git clone https://github.com/Lugia-Weather/iot.git
+   ```
+2. Abra a pasta do projeto pelo PlatformIO.
+3. O PlatformIO irá detectar e instalar automaticamente as dependências.
+4. Clique em **Run > Start Debugging** ou utilize o botão de upload para compilar e simular o projeto.
+5. Clique em **/docs/diagram.json** ative sua licença do Wokwi se não tiver e inicie a simulação.
+6. Os dados enviados via MQTT podem ser visualizados no [ThingSpeak - Canal 2976892](https://thingspeak.mathworks.com/channels/2976892).
 
 ---
 
@@ -127,7 +116,7 @@ O monitor serial exibe, a cada ciclo:
 
 ## Apresentação do Código-Fonte
 
-O código está em [`q1/src/main.cpp`](q1/src/main.cpp), com comentários detalhados em cada função:
+O código está em [`src/main.cpp`](src/main.cpp), com comentários detalhados em cada função:
 
 - **Conexão Wi-Fi e MQTT**: Funções `initWifi()`, `initMQTT()`, `verificaConexoes()`
 - **Leitura do sensor ultrassônico**: Função `leituraDistanciaCm()`
@@ -135,8 +124,6 @@ O código está em [`q1/src/main.cpp`](q1/src/main.cpp), com comentários detalh
 - **Indicação por LEDs**: Controle dos pinos 25, 26, 27 e 14
 - **Envio de dados via MQTT**: Função `enviaEstadoOutputMQTT()`
 - **Tratamento de erros**: Mensagens e reconexão automática
-
-O código está organizado, comentado e pronto para replicação.
 
 ---
 
