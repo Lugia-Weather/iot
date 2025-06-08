@@ -1,3 +1,4 @@
+// filepath: /Users/erikps/projects/fiap/gs-lugiaweather/iot/iot/q1/src/main.cpp
 /********************************************************************
  * Projeto: Envio de Dados MQTT com ESP32 - Global Solution 2025
  * Autor: Grupo Lugia Weather
