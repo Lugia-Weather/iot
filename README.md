@@ -26,14 +26,14 @@ O sistema indica o status do nível de água (NORMAL, ATENÇÃO, ALAGADO) por me
 Lugia Weather/
 ├── LICENSE
 ├── platformio.ini
-├── q1/
-│   ├── diagram.json
-│   ├── wokwi.toml
-│   └── src/
-│       └── main.cpp
-├── diagram.png
+├── README.md
 ├── dashboard.png
-└── README.md
+├── diagram.png
+├── docs/
+│   ├── diagram.json
+│   └── wokwi.toml
+└── src/
+    └── main.cpp
 ```
 
 ---
